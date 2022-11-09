@@ -2,14 +2,20 @@ import React from "react";
 
 export default function register(props) {
     // Edit show and Hide Password
-  let btnStyle;
+//   let btnStyle;
   let passwordBoxType= "Password";
-  btnStyle = { backgroundColor: "green" };
+  let btnClasses = ["btn ",'m-1 '];
+//   btnStyle = { backgroundColor: "green" };
   let btnText = "Show Password";
   if (props.showPass === true) {
-    btnStyle.backgroundColor = "red";
+    // btnStyle.backgroundColor = "red";
+    btnClasses.push("btn-danger ");
     btnText = "Hide Password";
     passwordBoxType= "Text";
+  }
+  else{
+    btnClasses.push("btn-success ");
+
   }
   return (
     <div className="container card p-4 mt-4 registered-container">
@@ -29,9 +35,9 @@ export default function register(props) {
         &nbsp;
         <button
           type="button"
-          className="btn btn-primary"
+          className={btnClasses.join(" ")}
           onClick={props.click}
-          style={btnStyle}
+        //   style={btnStyle}
         >
           {btnText}
         </button>
