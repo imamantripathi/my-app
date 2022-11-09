@@ -12,6 +12,8 @@ class App extends Component {
       name: null,
       email: null,
       password: null,
+      showPass:false,
+
     };
   }
   registrationHandler = (event) => {
@@ -23,13 +25,18 @@ class App extends Component {
       name,email,password,isRegistered:true,
      })
   };
+  showPassword = ()=>{
+this.setState({
+  showPass: !this.state.showPass,
+})
+  }
   render() {
     return (
       <div>
         {this.state.isRegistered ? (
           <Greet name={this.state.name} email={this.state.email}></Greet>
         ) : (
-          <Register submit={this.registrationHandler}></Register>
+          <Register showPass={this.state.showPass} click={this.showPassword} submit={this.registrationHandler}></Register>
         )}
       </div>
     );
