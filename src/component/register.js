@@ -25,9 +25,10 @@ export default function register(props) {
   padding: 0.25em 1em;
   border: 2px solid palevioletred;
   border-radius: 3px;
-`; 
+`;
+const StyledRegisterContainer = Styled.div`width: 400px;`; 
   return (
-    <div className="container card p-4 mt-4 registered-container">
+    <StyledRegisterContainer className="container card p-4 mt-4 registered-container">
       <h1 className="text-center">Registration Form</h1>
       <form onSubmit={props.submit}>
         <div className="form-group">
@@ -58,6 +59,6 @@ export default function register(props) {
         <Button type="button">Login</Button>
        
       </form>
-    </div>
+    </StyledRegisterContainer>
   );
 }
