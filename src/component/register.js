@@ -17,16 +17,25 @@ export default function register(props) {
     btnClasses.push("btn-success ");
   }
   const Button = Styled.button`
-  color: palevioletred;
+  color: white;
   font-size: 1em;
-  display:block;
-  width:100%;
- 
+  background-color:${(props) => props.bgColor};
+  display:${(props) => (props.flag ? "inline-block" : "block")}
+  width:${(props) => (props.flag ? "50%" : "100%")};
   padding: 0.25em 1em;
-  border: 2px solid palevioletred;
+  margin: 0.25em;
+  
   border-radius: 3px;
 `;
-const StyledRegisterContainer = Styled.div`width: 400px;`; 
+  const StyledRegisterContainer = Styled.div`
+  // width: 600px !important;
+&:hover{
+  box-shadow:0px 0px 5px black;
+};
+@media (max-width: 600px) {
+  width:300px;
+}
+`;
   return (
     <StyledRegisterContainer className="container card p-4 mt-4 registered-container">
       <h1 className="text-center">Registration Form</h1>
@@ -56,8 +65,15 @@ const StyledRegisterContainer = Styled.div`width: 400px;`;
         >
           {btnText}
         </button>
-        <Button type="button">Login</Button>
-       
+        <Button type="button" flag="1" bgColor="red">
+          Login
+        </Button>
+        <Button type="button" flag="1" bgColor="green">
+          Login with Google
+        </Button>
+        <Button flag="0" bgColor="orange">
+          Nothing
+        </Button>
       </form>
     </StyledRegisterContainer>
   );
