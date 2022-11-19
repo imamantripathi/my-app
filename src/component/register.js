@@ -20,8 +20,8 @@ export default function register(props) {
   color: white;
   font-size: 1em;
   background-color:${(props) => props.bgColor};
-  display:${(props) => (props.flag ? "inline-block" : "block")}
-  width:${(props) => (props.flag ? "50%" : "100%")};
+  display:${(props) => (props.flag === "1" ? "inline-block" : "block")};
+  width:${(props) => (props.flag ==="1" ? "50%" : "100%")};
   padding: 0.25em 1em;
   margin: 0.25em;
   
